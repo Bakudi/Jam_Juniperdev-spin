@@ -11,6 +11,11 @@ func _ready():
 	print(random_three)
 
 func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("Iniciar"):
+		var tiempo_Espera = randf_range(1.5, 2.5)
+		$Input_Timer.wait_time == randf_range(0.9, 1.5)
+		$Global_Timer.wait_time == $Input_Timer.wait_time*3+1
+		$Global_Timer.start()
 	if $Global_Timer.time_left <= 0:
 		return
 	
