@@ -1,40 +1,40 @@
 extends Node2D
-
-var vida :int = 3
-
-var teclas_faciles : Array[String] = ["Q", "B", "P"]
-var random_three : int
+var vida: int = 3
+var teclas_faciles = ["Q", "B", "P"]
+var random_three: int
+var input_registrado: bool = false
 
 func _ready():
-	
 	random_three = randi_range(0, 2)
 	print(random_three)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	
-	while($Global_Timer.time_left > 0):
-		if($Input_Timer.time_left < 1.5 and $Input_Timer.time_left > 0):
-			if(Input.is_action_just_pressed(teclas_faciles[random_three])):
-				print("le dio bien")
-			else:
-				vida -= 1
-				if( vida == 0):
-					print("perdiste mano")
-					$Global_Timer.stop()
-			if(random_three >= 2):
-				print("reinicio del random_three")
-				random_three = 0
-			else:
-				print("suma del random")
-				random_three +=1
-	#Critico
-	#if($Input_Timer.time_left < 1.5 and $Input_Timer.time_left > 0):
-			#print("alo")
-		#else:
-			#if($Input_Timer.time_left == 0):
-				#vida -=1
-	pass
+	if $Global_Timer.time_left <= 0:
+		return
+	var en_ventana: bool = $Input_Timer.time_left < 1.5 and $Input_Timer.time_left > 0
+	if en_ventana and not input_registrado:
+		if Input.is_action_just_pressed(teclas_faciles[random_three]):
+			input_registrado = true
+			print("le dio bien")
 
 func _on_input_timer_timeout() -> void:
-	pass # Replace with function body.
+	if not input_registrado:
+		vida -= 1
+		print("no presionó — vidas: ", vida)
+		if vida == 0:
+			print("perdiste mano")
+			get_tree().reload_current_scene()
+			return
+	input_registrado = false
+	if random_three >= 2:
+		print("reinicio del random_three")
+		random_three = 0
+		print(random_three)
+	else:
+		print("suma del random")
+		random_three += 1
+		print(random_three)
+		
+func _on_global_timer_timeout() -> void:
+	print("fin")
+	get_tree().reload_current_scene()
