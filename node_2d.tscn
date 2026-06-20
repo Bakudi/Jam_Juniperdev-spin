@@ -8,10 +8,8 @@ script = ExtResource("1_wtcfe")
 
 [node name="Global_Timer" type="Timer" parent="." unique_id=654488784]
 wait_time = 20.0
-one_shot = true
 
 [node name="Input_Timer" type="Timer" parent="." unique_id=117459606]
-wait_time = 1.0999999999999999
+wait_time = 1.1
 
-[connection signal="timeout" from="Global_Timer" to="." method="_on_global_timer_timeout"]
 [connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]
