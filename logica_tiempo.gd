@@ -13,12 +13,23 @@ func _ready():
 func _process(delta: float) -> void:
 	if $Global_Timer.time_left <= 0:
 		return
+	
 	var en_ventana: bool = $Input_Timer.time_left < 1.5 and $Input_Timer.time_left > 0
-	if en_ventana and not input_registrado:
-		if Input.is_action_just_pressed(teclas_faciles[random_three]):
-			input_registrado = true
-			puntuacion += 1
-			print("le dio bien")
+	
+	for tecla in teclas_faciles:
+		if Input.is_action_just_pressed(tecla):
+			if en_ventana and not input_registrado and tecla == teclas_faciles[random_three]:
+				input_registrado = true
+				puntuacion += 1
+				print("le dio bien")
+			else:
+				if not input_registrado:
+					vida -= 1
+					print("tecla incorrecta o a destiempo — vidas: ", vida)
+					if vida == 0:
+						print("perdiste mano")
+						get_tree().reload_current_scene()
+						return
 
 func _on_input_timer_timeout() -> void:
 	if not input_registrado:
