@@ -1,5 +1,7 @@
 extends Node2D
 var vida: int = 3
+var dificultad: int
+var puntuacion = 0
 var teclas_faciles = ["Q", "B", "P"]
 var random_three: int
 var input_registrado: bool = false
@@ -15,6 +17,7 @@ func _process(delta: float) -> void:
 	if en_ventana and not input_registrado:
 		if Input.is_action_just_pressed(teclas_faciles[random_three]):
 			input_registrado = true
+			puntuacion += 1
 			print("le dio bien")
 
 func _on_input_timer_timeout() -> void:
@@ -35,6 +38,3 @@ func _on_input_timer_timeout() -> void:
 		random_three += 1
 		print(random_three)
 		
-func _on_global_timer_timeout() -> void:
-	print("fin")
-	get_tree().reload_current_scene()
