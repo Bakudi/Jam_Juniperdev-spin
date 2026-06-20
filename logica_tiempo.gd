@@ -1,15 +1,21 @@
 extends Node2D
+@onready var script_dif = $"Node2D-hijo"
 var vida: int = 3
 var dificultad: int
-var puntuacion = 0
+var puntuacion = 12
 var teclas_faciles = ["Q", "B", "P"]
 var random_three: int
 var input_registrado: bool = false
-
+var arreglo_utilizado: Array = []
 var mismoNivel : bool = false
 
 func _ready():
+	
 	random_three = randi_range(0, 2)
+	script_dif.definir_dificultad()
+	var random_array = randi_range(0, script_dif.arreglo_envio.size())
+	arreglo_utilizado = script_dif.arreglo_envio[random_array]
+	print(arreglo_utilizado)
 	print(random_three)
 
 func _process(delta: float) -> void:
