@@ -12,7 +12,7 @@ one_shot = true
 autostart = true
 
 [node name="Input_Timer" type="Timer" parent="." unique_id=117459606]
-wait_time = 4.0
+wait_time = 0.9
 autostart = true
 
 [connection signal="timeout" from="Global_Timer" to="." method="_on_global_timer_timeout"]

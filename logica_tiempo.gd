@@ -14,7 +14,7 @@ func _process(delta: float) -> void:
 	if $Global_Timer.time_left <= 0:
 		return
 	
-	var en_ventana: bool = $Input_Timer.time_left < 1.5 and $Input_Timer.time_left > 0
+	var en_ventana: bool = $Input_Timer and $Input_Timer.time_left > 0
 	
 	for tecla in teclas_faciles:
 		if Input.is_action_just_pressed(tecla):
