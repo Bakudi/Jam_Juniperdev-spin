@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cmwdw8kgbef6b"]
+
+[ext_resource type="Script" uid="uid://b8mqn0fjqsuya" path="res://node_2d.gd" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=843379414]
+script = ExtResource("1_wtcfe")
+
+[node name="Global_Timer" type="Timer" parent="." unique_id=654488784]
+wait_time = 20.0
+one_shot = true
+autostart = true
+
+[node name="Input_Timer" type="Timer" parent="." unique_id=117459606]
+wait_time = 4.0
+autostart = true
+
+[connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]
