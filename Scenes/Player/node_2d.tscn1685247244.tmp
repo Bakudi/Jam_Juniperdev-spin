@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://cmwdw8kgbef6b"]
+
+[ext_resource type="Script" uid="uid://b8mqn0fjqsuya" path="res://Scenes/Player/logica_tiempo.gd" id="1_fw5nb"]
+[ext_resource type="Script" uid="uid://8ufrturu5syc" path="res://Scenes/Player/difcultad.gd" id="2_vq8lm"]
+
+[node name="Node2D" type="Node2D" unique_id=843379414]
+visible = false
+script = ExtResource("1_fw5nb")
+
+[node name="Global_Timer" type="Timer" parent="." unique_id=654488784]
+wait_time = 20.0
+
+[node name="Input_Timer" type="Timer" parent="." unique_id=117459606]
+wait_time = 1.1
+
+[node name="Node2D-hijo" type="Node2D" parent="." unique_id=1155960068]
+script = ExtResource("2_vq8lm")
+
+[connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]

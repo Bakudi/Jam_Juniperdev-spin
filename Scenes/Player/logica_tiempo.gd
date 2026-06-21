@@ -10,18 +10,16 @@ var mismoNivel : bool = false
 
 func _ready():
 	script_dif.definir_dificultad()
-	random_start = randi_range(0, script_dif.arreglo_envio.size())
-	var random_array = randi_range(0, script_dif.arreglo_envio.size())
+	var random_array = randi_range(0, script_dif.arreglo_envio.size()-1)
 	arreglo_utilizado = script_dif.arreglo_envio[random_array]
-	print(arreglo_utilizado)
-	print(random_start)
+	random_start = randi_range(0, arreglo_utilizado.size()-1)
 
 func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Iniciar"):
 		
 		if !mismoNivel:
-			$Input_Timer.wait_time = randf_range(0.9, 1.5)
+			$Input_Timer.wait_time = randf_range(3, 5)
 			$Global_Timer.wait_time = $Input_Timer.wait_time * 3 + 1
 			
 			#Hace la animación antes de empezar el timer
@@ -62,7 +60,7 @@ func _on_input_timer_timeout() -> void:
 			get_tree().reload_current_scene()
 			return
 	input_registrado = false
-	if random_start >= 2:
+	if random_start >= arreglo_utilizado.size()-1:
 		print("reinicio del random_star")
 		random_start = 0
 		print(random_start)
