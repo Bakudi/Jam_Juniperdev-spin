@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b7ax0bxlx666d"]
 
+[ext_resource type="Script" uid="uid://cg1at5iacgrev" path="res://Scenes/opciones.gd" id="1_28310"]
+
 [node name="Opciones" type="Control" unique_id=1406790848]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_28310")
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1630909050]
 layout_mode = 1
@@ -39,6 +42,15 @@ theme_override_font_sizes/font_size = 40
 text = "Volumen
 "
 
+[node name="HSlider" type="HSlider" parent="VBoxContainer/Volumen" unique_id=843853143]
+layout_mode = 0
+offset_top = 52.5
+offset_right = 556.0
+offset_bottom = 112.5
+max_value = 1.5
+step = 0.001
+value = 1.5
+
 [node name="Resolución" type="Button" parent="VBoxContainer" unique_id=196677414]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
@@ -50,6 +62,5 @@ theme_override_font_sizes/font_size = 40
 text = "Atras
 "
 
-[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_configuraciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Atras" to="." method="_on_salir_pressed"]
+[connection signal="value_changed" from="VBoxContainer/Volumen/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Atras" to="." method="_on_atras_pressed"]
