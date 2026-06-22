@@ -15,7 +15,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.80785084, 0.78579336, 0.98922306, 1)
+color = Color(0.977341, 0.8935541, 0.8010278, 1)
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1607638615]
 layout_mode = 1
@@ -33,22 +33,23 @@ grow_vertical = 2
 theme_override_constants/separation = 40
 alignment = 1
 
-[node name="Jugar" type="Button" parent="VBoxContainer" unique_id=1481991216]
+[node name="Volumen" type="Button" parent="VBoxContainer" unique_id=1481991216]
 layout_mode = 2
 theme_override_font_sizes/font_size = 40
-text = "Jugar"
-
-[node name="Configuraciones" type="Button" parent="VBoxContainer" unique_id=196677414]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Configuraciones"
-
-[node name="Salir" type="Button" parent="VBoxContainer" unique_id=1378044361]
-layout_mode = 2
-theme_override_font_sizes/font_size = 40
-text = "Salir
+text = "Volumen
 "
 
-[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
-[connection signal="pressed" from="VBoxContainer/Configuraciones" to="." method="_on_configuraciones_pressed"]
-[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[node name="Resolución" type="Button" parent="VBoxContainer" unique_id=196677414]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Resolucion"
+
+[node name="Atras" type="Button" parent="VBoxContainer" unique_id=1378044361]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Atras
+"
+
+[connection signal="pressed" from="VBoxContainer/Volumen" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Resolución" to="." method="_on_configuraciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Atras" to="." method="_on_salir_pressed"]
