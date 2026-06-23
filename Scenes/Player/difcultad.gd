@@ -19,16 +19,16 @@ var devolver_dificultad: int
 
 
 func definir_dificultad():
-	if logica.puntuacion < 3:
+	if PuntuacionVidas.puntuacion < 3:
 		arreglo_envio = array_facil
 		return arreglo_envio
-	elif logica.puntuacion >= 3 and logica.puntuacion < 6:
+	elif PuntuacionVidas.puntuacion >= 3 and PuntuacionVidas.puntuacion < 6:
 		arreglo_envio = array_Medio
 		return arreglo_envio
-	elif logica.puntuacion >= 6 and logica.puntuacion < 8:
+	elif PuntuacionVidas.puntuacion >= 6 and PuntuacionVidas.puntuacion < 8:
 		arreglo_envio = array_dificil
 		return arreglo_envio
-	elif logica.puntuacion >= 8:
+	elif PuntuacionVidas.puntuacion >= 8:
 		arreglo_envio = array_emputado
 		return arreglo_envio
 		

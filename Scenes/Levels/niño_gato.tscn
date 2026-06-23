@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://2m4uqgoypg4h"]
+
+[ext_resource type="Texture2D" uid="uid://b3t81tcgwcpoa" path="res://Scenes/Levels/gatodandovueltas.jpg" id="1_c7gv6"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_drqso"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(0, 0, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sv8mx"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(64, 0, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a8eyd"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(128, 0, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_se5pq"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(0, 86, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6344"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(64, 86, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_13llk"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(128, 86, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tgn4o"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(0, 172, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ei3je"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(64, 172, 64, 86)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hee16"]
+atlas = ExtResource("1_c7gv6")
+region = Rect2(128, 172, 64, 86)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+animations = [{
+"frames": [{
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_drqso")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_sv8mx")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_a8eyd")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_se5pq")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_p6344")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_13llk")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_tgn4o")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_ei3je")
+}, {
+"duration": 1.1,
+"texture": SubResource("AtlasTexture_hee16")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 15.0
+}]
+
+[node name="NiñoGato" type="Node2D" unique_id=2037298921]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1476061307]
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"idle"
+frame_progress = 0.39281708

@@ -18,6 +18,7 @@ config/icon="res://icon.svg"
 [autoload]
 
 Musica="*uid://caydp1ml24jw6"
+PuntuacionVidas="*uid://b5pma1k660buq"
 
 [display]
 

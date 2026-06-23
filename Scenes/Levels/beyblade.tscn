@@ -1,0 +1,124 @@
+[gd_scene format=3 uid="uid://lkooqoube7wo"]
+
+[ext_resource type="Texture2D" uid="uid://cjji1skx4oosu" path="res://Scenes/Levels/Beyblade.png" id="1_i64qv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q7mcb"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(0, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y6w8l"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(40, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ocl0i"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(80, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nrum1"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(120, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hs4eq"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(160, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s8233"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(200, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pt2oo"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(240, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_so1bb"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(280, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7806s"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(320, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x1v4h"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(360, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_58tsx"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(400, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o54cl"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(440, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ktvm3"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(480, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w7kyf"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(520, 0, 40, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jqsoa"]
+atlas = ExtResource("1_i64qv")
+region = Rect2(560, 0, 40, 22)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+animations = [{
+"frames": [{
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_q7mcb")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_y6w8l")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ocl0i")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_nrum1")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_hs4eq")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_s8233")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_pt2oo")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_so1bb")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_7806s")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_x1v4h")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_58tsx")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_o54cl")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_ktvm3")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_w7kyf")
+}, {
+"duration": 0.7,
+"texture": SubResource("AtlasTexture_jqsoa")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 25.0
+}]
+
+[node name="Beyblade" type="Node2D" unique_id=951754216]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=816732764]
+scale = Vector2(2.8181815, 2.8181818)
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"idle"
+frame_progress = 0.8742316

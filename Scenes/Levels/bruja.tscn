@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://c0hr833i67y2a"]
+
+[ext_resource type="Texture2D" uid="uid://detxtqhiplj" path="res://Scenes/Levels/pocion-magica-hirviendo-viejo-caldero-ilustracion-dibujos-animados-vectoriales-olla-bruja-sustancia-verde-venenosa-nube-gas-toxico-efecto-soplo-animacion-sprite-hoja-elixir-cocina-bruja_107791-24471.png" id="1_t0uq7"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6tst"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(148, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa0md"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(444, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6xka0"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(0, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xepef"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(592, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mohqt"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(296, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bmk20"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(444, 0, 148, 237)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u6tst")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pa0md")
+}],
+"loop": 1,
+"name": &"error",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6xka0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xepef")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mohqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bmk20")
+}],
+"loop": 1,
+"name": &"pierde",
+"speed": 5.0
+}]
+
+[node name="Bruja" type="Node2D" unique_id=350503438]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1036738908]
+scale = Vector2(1.6486486, 1.6486486)
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"idle"

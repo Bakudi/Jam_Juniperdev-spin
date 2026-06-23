@@ -2,10 +2,76 @@
 
 [ext_resource type="Script" uid="uid://b8mqn0fjqsuya" path="res://Scenes/Player/logica_tiempo.gd" id="1_fw5nb"]
 [ext_resource type="Script" uid="uid://8ufrturu5syc" path="res://Scenes/Player/difcultad.gd" id="2_vq8lm"]
+[ext_resource type="Texture2D" uid="uid://bwt56cx5roqvg" path="res://Scenes/Levels/circle-progress-loading-bar-set_153791-1894.png" id="3_vq8lm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpcve"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(0, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyjqu"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(92, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iue4"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(184, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuho4"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(276, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2t4y"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(368, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfwm"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(460, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_swaqo"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(552, 352, 92, 88)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0si0g"]
+atlas = ExtResource("3_vq8lm")
+region = Rect2(644, 352, 92, 88)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_lpcve")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyjqu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6iue4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tuho4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o2t4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ahfwm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_swaqo")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0si0g")
+}],
+"loop": 0,
+"name": &"idle",
+"speed": 15.0
+}]
 
 [node name="Node2D" type="Node2D" unique_id=843379414]
-visible = false
 script = ExtResource("1_fw5nb")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1781433560]
 
 [node name="Global_Timer" type="Timer" parent="." unique_id=654488784]
 wait_time = 20.0
@@ -16,4 +82,13 @@ wait_time = 1.1
 [node name="Node2D-hijo" type="Node2D" parent="." unique_id=1155960068]
 script = ExtResource("2_vq8lm")
 
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=567097618]
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"idle"
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=911960564]
+sprite_frames = SubResource("SpriteFrames_8w0r3")
+animation = &"idle"
+
+[connection signal="timeout" from="Global_Timer" to="." method="_on_global_timer_timeout"]
 [connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]

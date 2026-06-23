@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://b5pma1k660buq"]
+
+[ext_resource type="Script" uid="uid://1kkdjn0denhi" path="res://puntuacion_Vidas.gd" id="1_lltuk"]
+
+[node name="Node2D" type="Node2D" unique_id=2130794980]
+script = ExtResource("1_lltuk")

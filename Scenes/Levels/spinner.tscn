@@ -1,0 +1,82 @@
+[gd_scene format=3 uid="uid://dxjam7crvqqe8"]
+
+[ext_resource type="Texture2D" uid="uid://bj57gmdkqe66g" path="res://Scenes/Levels/fidget-spinner-isometric-sequence-animation-260nw-671610601.jpg" id="1_cbqfw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_naqj5"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(0, 0, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ciyu3"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(115, 0, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_iekq0"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(230, 0, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q34e7"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(0, 75, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jbwtf"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(115, 75, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6kb2o"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(230, 75, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4upq1"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(0, 150, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nthe4"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(115, 150, 115, 75)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ay174"]
+atlas = ExtResource("1_cbqfw")
+region = Rect2(230, 150, 115, 75)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_w7mgy"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_naqj5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ciyu3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_iekq0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q34e7")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jbwtf")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6kb2o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4upq1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nthe4")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ay174")
+}],
+"loop": 1,
+"name": &"idle",
+"speed": 25.0
+}]
+
+[node name="Spinner" type="Node2D" unique_id=2083991663]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1138352830]
+position = Vector2(2, 2)
+scale = Vector2(4.693333, 4.693333)
+sprite_frames = SubResource("SpriteFrames_w7mgy")
+animation = &"idle"
