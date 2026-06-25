@@ -145,24 +145,38 @@ func perder_vida():
 		nivel_actual_instancia.get_node("AnimatedSprite2D").play("pierde")
 		await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
-	
+
 func _on_input_timer_timeout() -> void:
-	
 	if $Global_Timer.time_left > 0:
 		if not input_registrado:
 			perder_vida()
 			nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
 			await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
+			
+			# ✅ Verificar que el nodo sigue vivo antes de continuar
+			if not is_inside_tree():
+				return
+				
 			input_registrado = false
 			nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 			await get_tree().create_timer(randomStart_Await).timeout
+			
+			if not is_inside_tree():
+				return
+				
 			sum_randomStart()
 			audio_actual.play()
 			$Input_Timer.start()
 			return
+			
 		sum_randomStart()
 		input_registrado = false
 		await get_tree().create_timer(randomStart_Await).timeout
+		
+		# ✅ Mismo chequeo en el flujo normal
+		if not is_inside_tree():
+			return
+			
 		audio_actual.play()
 		$Input_Timer.start()
 		
