@@ -26,7 +26,7 @@ var input_registrado: bool = false
 var arreglo_utilizado: Array = []
 var nivel_actual_instancia: Node = null
 var nivel_actual_index: int = -1
-var randomStart_Await: int = randi_range(1,1.5)
+var randomStart_Await: int
 var audio_actual
 
 var duracion_original: float
@@ -49,7 +49,7 @@ func crear_nivel():
 	$Input_Timer.stop()
 	$Global_Timer.stop()
 	$Input_Timer.wait_time = randf_range(1, 1.5)
-	$Global_Timer.wait_time = $Input_Timer.wait_time * 3 + 4
+	$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await)*3 
 	var nuevo_index = niveles_restantes.pop_front()
 	while nuevo_index == nivel_actual_index:
 		nuevo_index = randi_range(0, NIVELES.size() - 1)
@@ -57,7 +57,6 @@ func crear_nivel():
 
 	if nivel_actual_instancia != null:
 		nivel_actual_instancia.queue_free()
-	print(nivel_actual_index)
 	nivel_actual_instancia = NIVELES[nivel_actual_index].instantiate()
 	add_child(nivel_actual_instancia)
 
@@ -74,7 +73,6 @@ func _process(delta: float) -> void:
 
 	if $Global_Timer.time_left <= 0:
 		return
-	#print($Input_Timer.time_left)
 	print(arreglo_utilizado,random_start)
 	var en_ventana: bool = $Input_Timer.time_left > 0
 	#Avisar la tecla a la persona - Pendiente
@@ -135,6 +133,7 @@ func _iniciar_con_animacion() -> void:
 	efecto_pitch.pitch_scale = 1.0 / nueva_velocidad
 	
 	# 3. Le damos play al audio y al timer
+	print("sonido de inicio del juego")
 	audio_actual.play()
 	$Input_Timer.start()
 	
@@ -147,13 +146,14 @@ func perder_vida():
 		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 func _on_input_timer_timeout() -> void:
-	if $Global_Timer.time_left > 0:
+	if $Global_Timer.time_left > 0 and $Global_Timer.time_left-$Input_Timer.time_left >= 0:
 		if not input_registrado:
 			perder_vida()
+			print("Perdió vida no presionó")
 			nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
 			await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
 			
-			# ✅ Verificar que el nodo sigue vivo antes de continuar
+			# Verificar que el nodo sigue vivo antes de continuar
 			if not is_inside_tree():
 				return
 				
@@ -165,6 +165,7 @@ func _on_input_timer_timeout() -> void:
 				return
 				
 			sum_randomStart()
+			print("sonido cuando no le da")
 			audio_actual.play()
 			$Input_Timer.start()
 			return
@@ -173,12 +174,12 @@ func _on_input_timer_timeout() -> void:
 		input_registrado = false
 		await get_tree().create_timer(randomStart_Await).timeout
 		
-		# ✅ Mismo chequeo en el flujo normal
+		#Mismo chequeo en el flujo normal
 		if not is_inside_tree():
 			return
-			
-		audio_actual.play()
+		print("sonido cuando si le da")
 		$Input_Timer.start()
+		audio_actual.play()
 		
 
 func sum_randomStart():
@@ -189,6 +190,7 @@ func sum_randomStart():
 
 func _on_global_timer_timeout() -> void:
 	$Input_Timer.stop()
+	audio_actual.stop()
 	PuntuacionVidas.subirPuntuacion()
 	nivel_actual_instancia.get_node("AnimatedSprite2D").play("gana")
 	await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished

@@ -109,6 +109,7 @@ bus = &"PitchShift"
 
 [node name="Audio_Ventilador" type="AudioStreamPlayer" parent="." unique_id=1199461472]
 stream = ExtResource("7_swaqo")
+volume_db = 15.0
 bus = &"PitchShift"
 
 [node name="Audio_gato" type="AudioStreamPlayer" parent="." unique_id=1261962308]
