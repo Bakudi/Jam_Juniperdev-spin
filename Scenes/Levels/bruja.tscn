@@ -1,56 +1,106 @@
 [gd_scene format=3 uid="uid://c0hr833i67y2a"]
 
-[ext_resource type="Texture2D" uid="uid://detxtqhiplj" path="res://Scenes/Levels/pocion-magica-hirviendo-viejo-caldero-ilustracion-dibujos-animados-vectoriales-olla-bruja-sustancia-verde-venenosa-nube-gas-toxico-efecto-soplo-animacion-sprite-hoja-elixir-cocina-bruja_107791-24471.png" id="1_t0uq7"]
+[ext_resource type="Texture2D" uid="uid://cwev8mvha4aum" path="res://Assets/demo_Spritesheet.png" id="1_6xka0"]
+[ext_resource type="Texture2D" uid="uid://basjs572tfc1b" path="res://Scenes/Levels/Bruja_Img.png" id="1_t0uq7"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6tst"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(148, 0, 148, 237)
+[sub_resource type="AtlasTexture" id="AtlasTexture_optw3"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(0, 371, 86, 53)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_pa0md"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(444, 0, 148, 237)
+[sub_resource type="AtlasTexture" id="AtlasTexture_fnm37"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(86, 371, 86, 53)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6xka0"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(0, 0, 148, 237)
+[sub_resource type="AtlasTexture" id="AtlasTexture_2xcfe"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(86, 212, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8i3tx"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(172, 212, 86, 53)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_xepef"]
 atlas = ExtResource("1_t0uq7")
+region = Rect2(0, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u6tst"]
+atlas = ExtResource("1_t0uq7")
 region = Rect2(592, 0, 148, 237)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pa0md"]
+atlas = ExtResource("1_t0uq7")
+region = Rect2(148, 0, 148, 237)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mohqt"]
 atlas = ExtResource("1_t0uq7")
-region = Rect2(296, 0, 148, 237)
+region = Rect2(444, 0, 148, 237)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_bmk20"]
 atlas = ExtResource("1_t0uq7")
-region = Rect2(444, 0, 148, 237)
+region = Rect2(296, 0, 148, 237)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ipuiy"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(86, 0, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dwf0n"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(172, 0, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_b8otq"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(86, 106, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_t0dxh"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(0, 106, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k3jqt"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(0, 159, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdv5f"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(86, 159, 86, 53)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3xkat"]
+atlas = ExtResource("1_6xka0")
+region = Rect2(172, 159, 86, 53)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xkadg"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_optw3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fnm37")
+}],
+"loop": 0,
+"name": &"bien",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2xcfe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8i3tx")
+}],
+"loop": 0,
+"name": &"gana",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xepef")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_u6tst")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_pa0md")
-}],
-"loop": 1,
-"name": &"error",
-"speed": 5.0
 }, {
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6xka0")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_xepef")
-}],
-"loop": 1,
-"name": &"idle",
-"speed": 5.0
-}, {
-"frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_mohqt")
 }, {
@@ -58,13 +108,49 @@ animations = [{
 "texture": SubResource("AtlasTexture_bmk20")
 }],
 "loop": 1,
+"name": &"idle",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ipuiy")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dwf0n")
+}],
+"loop": 0,
+"name": &"mal",
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_b8otq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_t0dxh")
+}],
+"loop": 0,
 "name": &"pierde",
-"speed": 5.0
+"speed": 25.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k3jqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vdv5f")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3xkat")
+}],
+"loop": 0,
+"name": &"presionar",
+"speed": 25.0
 }]
 
 [node name="Bruja" type="Node2D" unique_id=350503438]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1036738908]
-scale = Vector2(1.6486486, 1.6486486)
-sprite_frames = SubResource("SpriteFrames_8w0r3")
-animation = &"idle"
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=329542571]
+scale = Vector2(4.646191, 4.6461916)
+sprite_frames = SubResource("SpriteFrames_xkadg")
+animation = &"presionar"

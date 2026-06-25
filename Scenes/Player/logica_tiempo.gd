@@ -3,6 +3,8 @@ extends Node2D
 @onready var script_dif = $"Node2D-hijo"
 @onready var animacion_inicio: AnimatedSprite2D = $AnimatedSprite2D
 
+const aviso_de_tecla = preload("res://Scenes/Levels/Sounds/PlaceHolder_sound.mp3")
+
 const NIVELES = [
 	preload("res://Scenes/Levels/beyblade.tscn"),
 	preload("res://Scenes/Levels/bruja.tscn"),
@@ -11,12 +13,23 @@ const NIVELES = [
 	preload("res://Scenes/Levels/ventilador.tscn")
 ]
 
+@onready var audios: Array = [
+	$Audio_Beyblade,
+	$Audio_Bruja,
+	$Audio_gato,
+	$Audio_Spinner,
+	$Audio_Ventilador
+]
+
 var random_start: int
 var input_registrado: bool = false
 var arreglo_utilizado: Array = []
 var nivel_actual_instancia: Node = null
 var nivel_actual_index: int = -1
+var randomStart_Await: int = randi_range(1,1.5)
+var audio_actual
 
+var duracion_original: float
 var niveles_restantes: Array = []
 
 func _ready():
@@ -32,10 +45,11 @@ func crear_nivel():
 	if niveles_restantes.is_empty():
 		fill_shuffled()
 	
+	randomStart_Await= randi_range(1,1.5)
 	$Input_Timer.stop()
 	$Global_Timer.stop()
-	$Input_Timer.wait_time = randf_range(3, 5)
-	$Global_Timer.wait_time = $Input_Timer.wait_time * 3 + 1
+	$Input_Timer.wait_time = randf_range(1, 1.5)
+	$Global_Timer.wait_time = $Input_Timer.wait_time * 3 + 4
 	var nuevo_index = niveles_restantes.pop_front()
 	while nuevo_index == nivel_actual_index:
 		nuevo_index = randi_range(0, NIVELES.size() - 1)
@@ -43,7 +57,7 @@ func crear_nivel():
 
 	if nivel_actual_instancia != null:
 		nivel_actual_instancia.queue_free()
-
+	print(nivel_actual_index)
 	nivel_actual_instancia = NIVELES[nivel_actual_index].instantiate()
 	add_child(nivel_actual_instancia)
 
@@ -55,47 +69,97 @@ func crear_nivel():
 
 func _process(delta: float) -> void:
 	
-	if Input.is_action_just_pressed("Iniciar"):
+	if Input.is_action_just_pressed("Iniciar") and $Global_Timer.time_left <= 0:
 		_iniciar_con_animacion()
 
 	if $Global_Timer.time_left <= 0:
 		return
-	
+	#print($Input_Timer.time_left)
+	#print(arreglo_utilizado,random_start)
 	var en_ventana: bool = $Input_Timer.time_left > 0
-
+	#Avisar la tecla a la persona - Pendiente
 	for tecla in arreglo_utilizado:
 		if Input.is_action_just_pressed(tecla):
 			if en_ventana and not input_registrado and tecla == arreglo_utilizado[random_start]:
 				input_registrado = true
-				PuntuacionVidas.subirPuntuacion()
-				print("le dio bien — puntos: ", PuntuacionVidas.puntuacion)
+				nivel_actual_instancia.get_node("AnimatedSprite2D").play("bien")
+				await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
+				nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
+				
 			else:
 				if not input_registrado:
+					input_registrado = true
+					nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
+					await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
+					nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 					perder_vida()
-					return
+					
 
 func _iniciar_con_animacion() -> void:
+	animacion_inicio.visible = true
 	animacion_inicio.play("idle")
 	await animacion_inicio.animation_finished
+	animacion_inicio.visible = false
 	nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 	$Global_Timer.start()
+	await get_tree().create_timer(1).timeout
+	audio_actual = audios[nivel_actual_index]
+	var duracion_deseada: float = $Input_Timer.wait_time
+	var duracion_original: float = audio_actual.stream.get_length()
+	var nueva_velocidad: float = duracion_original / duracion_deseada
+	audio_actual.pitch_scale = nueva_velocidad
+	audio_actual.play()
 	$Input_Timer.start()
 	
 func perder_vida():
 	PuntuacionVidas.bajarVidas()
 	print("vida perdida — vidas: ", PuntuacionVidas.vida)
-	crear_nivel()
+	if PuntuacionVidas.vida <=0:
+		nivel_actual_instancia.get_node("AnimatedSprite2D").play("pierde")
+		await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 	
 func _on_input_timer_timeout() -> void:
-	if not input_registrado:
-		perder_vida()
-		return
+	
+	if $Global_Timer.time_left > 0:
+		if not input_registrado:
+			perder_vida()
+			nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
+			await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
+			input_registrado = false
+			nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
+			await get_tree().create_timer(randomStart_Await).timeout
+			sum_randomStart()
+			match nivel_actual_index:
+				0:$Audio_Beyblade.play()
+				1:$Audio_Bruja.play()
+				2:$Audio_gato.play()
+				3:$Audio_Spinner.play()
+				4:$Audio_Ventilador.play()
+			$Input_Timer.start()
+			return
+		sum_randomStart()
 		input_registrado = false
+		await get_tree().create_timer(randomStart_Await).timeout
+		match nivel_actual_index:
+			0:$Audio_Beyblade.play()
+			1:$Audio_Bruja.play()
+			2:$Audio_gato.play()
+			3:$Audio_Spinner.play()
+			4:$Audio_Ventilador.play()
+		$Input_Timer.start()
+		
+
+func sum_randomStart():
 	if random_start >= arreglo_utilizado.size() - 1:
+		print("hace el random start -----------------------------------")
 		random_start = 0
 	else:
 		random_start += 1
 
 func _on_global_timer_timeout() -> void:
 	$Input_Timer.stop()
+	PuntuacionVidas.subirPuntuacion()
+	nivel_actual_instancia.get_node("AnimatedSprite2D").play("gana")
+	await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
 	crear_nivel()

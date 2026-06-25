@@ -2,43 +2,51 @@
 
 [ext_resource type="Script" uid="uid://b8mqn0fjqsuya" path="res://Scenes/Player/logica_tiempo.gd" id="1_fw5nb"]
 [ext_resource type="Script" uid="uid://8ufrturu5syc" path="res://Scenes/Player/difcultad.gd" id="2_vq8lm"]
-[ext_resource type="Texture2D" uid="uid://bwt56cx5roqvg" path="res://Scenes/Levels/circle-progress-loading-bar-set_153791-1894.png" id="3_vq8lm"]
+[ext_resource type="Texture2D" uid="uid://ka1nswx7d045" path="res://Scenes/Levels/Progress_bar.png" id="3_vq8lm"]
+[ext_resource type="AudioStream" uid="uid://0caoj51vud86" path="res://Scenes/Levels/Sounds/Sonido_Spinner.wav" id="4_tuho4"]
+[ext_resource type="AudioStream" uid="uid://i0uv5jbawvp4" path="res://Scenes/Levels/Sounds/Sonido_Bruja.wav" id="5_o2t4y"]
+[ext_resource type="AudioStream" uid="uid://cfpk6iot4n05j" path="res://Scenes/Levels/Sounds/Sonido_Beyblade.wav" id="6_ahfwm"]
+[ext_resource type="AudioStream" uid="uid://dba3g38r082fm" path="res://Scenes/Levels/Sounds/Sonido_Ventilador.wav" id="7_swaqo"]
+[ext_resource type="AudioStream" uid="uid://c4oqrspd3qrxx" path="res://Scenes/Levels/Sounds/Sonido_Gato.wav" id="8_0si0g"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_lpcve"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_kny6g"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(0, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyjqu"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_lpcve"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(92, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_6iue4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyjqu"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(184, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tuho4"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_6iue4"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(276, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_o2t4y"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_tuho4"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(368, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_ahfwm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_o2t4y"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(460, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_swaqo"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ahfwm"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(552, 352, 92, 88)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_0si0g"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_swaqo"]
 atlas = ExtResource("3_vq8lm")
 region = Rect2(644, 352, 92, 88)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_8w0r3"]
 animations = [{
 "frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kny6g")
+}, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_lpcve")
 }, {
@@ -59,9 +67,6 @@ animations = [{
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_swaqo")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_0si0g")
 }],
 "loop": 0,
 "name": &"idle",
@@ -78,17 +83,32 @@ wait_time = 20.0
 
 [node name="Input_Timer" type="Timer" parent="." unique_id=117459606]
 wait_time = 1.1
+one_shot = true
 
 [node name="Node2D-hijo" type="Node2D" parent="." unique_id=1155960068]
 script = ExtResource("2_vq8lm")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=567097618]
+z_index = 10
 sprite_frames = SubResource("SpriteFrames_8w0r3")
 animation = &"idle"
+frame = 6
+frame_progress = 0.4109028
 
-[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="." unique_id=911960564]
-sprite_frames = SubResource("SpriteFrames_8w0r3")
-animation = &"idle"
+[node name="Audio_Spinner" type="AudioStreamPlayer" parent="." unique_id=1702583186]
+stream = ExtResource("4_tuho4")
+
+[node name="Audio_Bruja" type="AudioStreamPlayer" parent="." unique_id=1829071616]
+stream = ExtResource("5_o2t4y")
+
+[node name="Audio_Beyblade" type="AudioStreamPlayer" parent="." unique_id=441783603]
+stream = ExtResource("6_ahfwm")
+
+[node name="Audio_Ventilador" type="AudioStreamPlayer" parent="." unique_id=1199461472]
+stream = ExtResource("7_swaqo")
+
+[node name="Audio_gato" type="AudioStreamPlayer" parent="." unique_id=1261962308]
+stream = ExtResource("8_0si0g")
 
 [connection signal="timeout" from="Global_Timer" to="." method="_on_global_timer_timeout"]
 [connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]

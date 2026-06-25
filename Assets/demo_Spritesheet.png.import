@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bj57gmdkqe66g"
-path="res://.godot/imported/fidget-spinner-isometric-sequence-animation-260nw-671610601.jpg-876c160a349b49ab947af0bd293eb10b.ctex"
+uid="uid://cwev8mvha4aum"
+path="res://.godot/imported/demo_Spritesheet.png-d7fc5bcd408e77c37a81331db3e78ea5.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Scenes/Levels/fidget-spinner-isometric-sequence-animation-260nw-671610601.jpg"
-dest_files=["res://.godot/imported/fidget-spinner-isometric-sequence-animation-260nw-671610601.jpg-876c160a349b49ab947af0bd293eb10b.ctex"]
+source_file="res://Assets/demo_Spritesheet.png"
+dest_files=["res://.godot/imported/demo_Spritesheet.png-d7fc5bcd408e77c37a81331db3e78ea5.ctex"]
 
 [params]
 
