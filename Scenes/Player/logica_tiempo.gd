@@ -75,7 +75,7 @@ func _process(delta: float) -> void:
 	if $Global_Timer.time_left <= 0:
 		return
 	#print($Input_Timer.time_left)
-	#print(arreglo_utilizado,random_start)
+	print(arreglo_utilizado,random_start)
 	var en_ventana: bool = $Input_Timer.time_left > 0
 	#Avisar la tecla a la persona - Pendiente
 	for tecla in arreglo_utilizado:
@@ -95,19 +95,46 @@ func _process(delta: float) -> void:
 					perder_vida()
 					
 
+#func _iniciar_con_animacion() -> void:
+	#animacion_inicio.visible = true
+	#animacion_inicio.play("idle")
+	#await animacion_inicio.animation_finished
+	#animacion_inicio.visible = false
+	#nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
+	#$Global_Timer.start()
+	#await get_tree().create_timer(1).timeout
+	#audio_actual = audios[nivel_actual_index]
+	#var duracion_deseada: float = $Input_Timer.wait_time
+	#var duracion_original: float = audio_actual.stream.get_length()
+	#var nueva_velocidad: float = duracion_original / duracion_deseada
+	#audio_actual.pitch_scale = nueva_velocidad
+	#audio_actual.play()
+	#$Input_Timer.start()
+	
 func _iniciar_con_animacion() -> void:
 	animacion_inicio.visible = true
 	animacion_inicio.play("idle")
 	await animacion_inicio.animation_finished
 	animacion_inicio.visible = false
+	
 	nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 	$Global_Timer.start()
 	await get_tree().create_timer(1).timeout
+	
 	audio_actual = audios[nivel_actual_index]
 	var duracion_deseada: float = $Input_Timer.wait_time
 	var duracion_original: float = audio_actual.stream.get_length()
 	var nueva_velocidad: float = duracion_original / duracion_deseada
+	
+	# 1. Modificamos la velocidad física del audio
 	audio_actual.pitch_scale = nueva_velocidad
+	
+	# 2. Corregimos el tono usando el efecto del bus personalizado
+	var bus_index = AudioServer.get_bus_index("PitchShift")
+	var efecto_pitch = AudioServer.get_bus_effect(bus_index, 0)
+	efecto_pitch.pitch_scale = 1.0 / nueva_velocidad
+	
+	# 3. Le damos play al audio y al timer
 	audio_actual.play()
 	$Input_Timer.start()
 	
@@ -130,29 +157,18 @@ func _on_input_timer_timeout() -> void:
 			nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 			await get_tree().create_timer(randomStart_Await).timeout
 			sum_randomStart()
-			match nivel_actual_index:
-				0:$Audio_Beyblade.play()
-				1:$Audio_Bruja.play()
-				2:$Audio_gato.play()
-				3:$Audio_Spinner.play()
-				4:$Audio_Ventilador.play()
+			audio_actual.play()
 			$Input_Timer.start()
 			return
 		sum_randomStart()
 		input_registrado = false
 		await get_tree().create_timer(randomStart_Await).timeout
-		match nivel_actual_index:
-			0:$Audio_Beyblade.play()
-			1:$Audio_Bruja.play()
-			2:$Audio_gato.play()
-			3:$Audio_Spinner.play()
-			4:$Audio_Ventilador.play()
+		audio_actual.play()
 		$Input_Timer.start()
 		
 
 func sum_randomStart():
 	if random_start >= arreglo_utilizado.size() - 1:
-		print("hace el random start -----------------------------------")
 		random_start = 0
 	else:
 		random_start += 1

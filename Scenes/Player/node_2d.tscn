@@ -97,18 +97,23 @@ frame_progress = 0.4109028
 
 [node name="Audio_Spinner" type="AudioStreamPlayer" parent="." unique_id=1702583186]
 stream = ExtResource("4_tuho4")
+bus = &"PitchShift"
 
 [node name="Audio_Bruja" type="AudioStreamPlayer" parent="." unique_id=1829071616]
 stream = ExtResource("5_o2t4y")
+bus = &"PitchShift"
 
 [node name="Audio_Beyblade" type="AudioStreamPlayer" parent="." unique_id=441783603]
 stream = ExtResource("6_ahfwm")
+bus = &"PitchShift"
 
 [node name="Audio_Ventilador" type="AudioStreamPlayer" parent="." unique_id=1199461472]
 stream = ExtResource("7_swaqo")
+bus = &"PitchShift"
 
 [node name="Audio_gato" type="AudioStreamPlayer" parent="." unique_id=1261962308]
 stream = ExtResource("8_0si0g")
+bus = &"PitchShift"
 
 [connection signal="timeout" from="Global_Timer" to="." method="_on_global_timer_timeout"]
 [connection signal="timeout" from="Input_Timer" to="." method="_on_input_timer_timeout"]
