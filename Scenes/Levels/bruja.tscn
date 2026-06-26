@@ -1,7 +1,20 @@
 [gd_scene format=3 uid="uid://c0hr833i67y2a"]
 
 [ext_resource type="Texture2D" uid="uid://cwev8mvha4aum" path="res://Assets/demo_Spritesheet.png" id="1_6xka0"]
-[ext_resource type="Texture2D" uid="uid://basjs572tfc1b" path="res://Scenes/Levels/Bruja_Img.png" id="1_t0uq7"]
+[ext_resource type="Texture2D" uid="uid://bm8lenmt7siyy" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.44.42 AM.jpeg" id="2_2uqp6"]
+[ext_resource type="Texture2D" uid="uid://cempfe3fqkrf7" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.44.56 AM.jpeg" id="3_xq7fp"]
+[ext_resource type="Texture2D" uid="uid://d0urpmyxn6ox6" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.12 AM.jpeg" id="4_2v71d"]
+[ext_resource type="Texture2D" uid="uid://c3nlr4yqtrqnj" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.29 AM.jpeg" id="5_2d7i6"]
+[ext_resource type="Texture2D" uid="uid://d3wq1e4ykg8le" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.30 AM (1).jpeg" id="6_3n6e6"]
+[ext_resource type="Texture2D" uid="uid://k584340wnj0x" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.30 AM.jpeg" id="7_0htx5"]
+[ext_resource type="Texture2D" uid="uid://ssmupeknsq7l" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.31 AM.jpeg" id="8_3y26u"]
+[ext_resource type="Texture2D" uid="uid://m8ocpr3gey20" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.32 AM.jpeg" id="9_3fumi"]
+[ext_resource type="Texture2D" uid="uid://mbxhy0xb3k3d" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.33 AM (1).jpeg" id="10_bpnsp"]
+[ext_resource type="Texture2D" uid="uid://cc80v4p014hxs" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.33 AM (2).jpeg" id="11_rhteu"]
+[ext_resource type="Texture2D" uid="uid://j7idt8j3v2y8" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.33 AM.jpeg" id="12_rfgt7"]
+[ext_resource type="Texture2D" uid="uid://mj1xqarfxdw6" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.34 AM (1).jpeg" id="13_0yed2"]
+[ext_resource type="Texture2D" uid="uid://dcauxoj11v632" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.34 AM (2).jpeg" id="14_2fgir"]
+[ext_resource type="Texture2D" uid="uid://cxykfamlxqixm" path="res://Scenes/Levels/BrujaAnimations/WhatsApp Image 2026-06-26 at 12.45.34 AM.jpeg" id="15_15roo"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_optw3"]
 atlas = ExtResource("1_6xka0")
@@ -18,26 +31,6 @@ region = Rect2(86, 212, 86, 53)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8i3tx"]
 atlas = ExtResource("1_6xka0")
 region = Rect2(172, 212, 86, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_xepef"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(0, 0, 148, 237)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_u6tst"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(592, 0, 148, 237)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_pa0md"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(148, 0, 148, 237)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_mohqt"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(444, 0, 148, 237)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bmk20"]
-atlas = ExtResource("1_t0uq7")
-region = Rect2(296, 0, 148, 237)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipuiy"]
 atlas = ExtResource("1_6xka0")
@@ -93,19 +86,46 @@ animations = [{
 }, {
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_xepef")
+"texture": ExtResource("2_2uqp6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_u6tst")
+"texture": ExtResource("3_xq7fp")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_pa0md")
+"texture": ExtResource("4_2v71d")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mohqt")
+"texture": ExtResource("5_2d7i6")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_bmk20")
+"texture": ExtResource("6_3n6e6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_0htx5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_3y26u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_3fumi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_bpnsp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_rhteu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_rfgt7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0yed2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_2fgir")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_15roo")
 }],
 "loop": 1,
 "name": &"idle",
@@ -151,6 +171,8 @@ animations = [{
 [node name="Bruja" type="Node2D" unique_id=350503438]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=329542571]
-scale = Vector2(4.646191, 4.6461916)
+scale = Vector2(0.675, 0.675)
 sprite_frames = SubResource("SpriteFrames_xkadg")
-animation = &"presionar"
+animation = &"idle"
+frame = 9
+frame_progress = 0.76315856

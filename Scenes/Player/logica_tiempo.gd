@@ -21,6 +21,9 @@ const NIVELES = [
 	$Audio_Ventilador
 ]
 
+@onready var contenedor_teclas: HBoxContainer = $ContenedorTeclas
+@onready var label_tecla_activa: Label = $ContenedorTeclas/LabelTeclaActiva
+
 var random_start: int
 var input_registrado: bool = false
 var arreglo_utilizado: Array = []
@@ -32,6 +35,8 @@ var audio_actual
 var duracion_original: float
 var niveles_restantes: Array = []
 
+var await_Array: Array = [0.5,1.0,1.5]
+
 func _ready():
 	if GameState.auto_iniciar:
 		GameState.auto_iniciar = false
@@ -40,12 +45,14 @@ func _ready():
 		nivel_actual_instancia = NIVELES[nivel_actual_index].instantiate()
 		add_child(nivel_actual_instancia)
 		input_registrado = false
-		$Input_Timer.wait_time = randf_range(1, 1.5)
+		$Input_Timer.wait_time = 0.6
 		randomStart_Await = randi_range(1, 2)
 		arreglo_utilizado = GameState.arreglo_utilizado.duplicate()
 		random_start = GameState.random_start
-		$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await) * arreglo_utilizado.size() + 1
+		$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await) * arreglo_utilizado.size()*3 + 1
 		_iniciar_con_animacion()
+		_mostrar_teclas()
+		randomStart_Await = 1.21
 	else:
 		PuntuacionVidas.reiniciar()
 		fill_shuffled()
@@ -60,10 +67,9 @@ func crear_nivel():
 	if niveles_restantes.is_empty():
 		fill_shuffled()
 	
-	randomStart_Await = randi_range(1, 2)
 	$Input_Timer.stop()
 	$Global_Timer.stop()
-	$Input_Timer.wait_time = randf_range(1, 1.5)
+	$Input_Timer.wait_time = 1
 	
 	var nuevo_index = niveles_restantes.pop_front()
 	while nuevo_index == nivel_actual_index:
@@ -82,6 +88,63 @@ func crear_nivel():
 	random_start = randi_range(0, arreglo_utilizado.size() - 1)
 	print(arreglo_utilizado, random_start)
 	$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await) * arreglo_utilizado.size() + 1
+
+func _mostrar_teclas():
+	# Limpia cualquier caja previa
+	for hijo in contenedor_teclas.get_children():
+		hijo.queue_free()
+	
+	# Crea una caja por cada tecla del arreglo
+	for i in arreglo_utilizado.size():
+		var tecla = arreglo_utilizado[i]
+		
+		var panel = PanelContainer.new()
+		var label = Label.new()
+		label.text = tecla
+		label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
+		
+		# Resalta la tecla que se debe presionar
+		if i == random_start:
+			label.add_theme_color_override("font_color", Color.YELLOW)
+			panel.add_theme_stylebox_override("panel", _estilo_resaltado())
+		else:
+			panel.add_theme_stylebox_override("panel", _estilo_normal())
+		
+		panel.add_child(label)
+		panel.custom_minimum_size = Vector2(60, 60)
+		contenedor_teclas.add_child(panel)
+	
+	# Muestra por separado cuál es la tecla correcta
+	#label_tecla_activa.text = "Presiona: " + GameState.arreglo_utilizado[GameState.random_start]
+
+func _estilo_normal() -> StyleBoxFlat:
+	var estilo = StyleBoxFlat.new()
+	estilo.bg_color = Color(0.2, 0.2, 0.2)
+	estilo.border_width_left = 2
+	estilo.border_width_right = 2
+	estilo.border_width_top = 2
+	estilo.border_width_bottom = 2
+	estilo.border_color = Color.WHITE
+	estilo.corner_radius_top_left = 6
+	estilo.corner_radius_top_right = 6
+	estilo.corner_radius_bottom_left = 6
+	estilo.corner_radius_bottom_right = 6
+	return estilo
+
+func _estilo_resaltado() -> StyleBoxFlat:
+	var estilo = StyleBoxFlat.new()
+	estilo.bg_color = Color(0.5, 0.4, 0.0)
+	estilo.border_width_left = 3
+	estilo.border_width_right = 3
+	estilo.border_width_top = 3
+	estilo.border_width_bottom = 3
+	estilo.border_color = Color.YELLOW
+	estilo.corner_radius_top_left = 6
+	estilo.corner_radius_top_right = 6
+	estilo.corner_radius_bottom_left = 6
+	estilo.corner_radius_bottom_right = 6
+	return estilo
 
 func _preparar_siguiente_nivel():
 	if niveles_restantes.is_empty():
@@ -130,6 +193,7 @@ func _process(delta: float) -> void:
 			break
 
 func _iniciar_con_animacion() -> void:
+	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido_Niveles.wav")
 	animacion_inicio.visible = true
 	animacion_inicio.play("idle")
 	await animacion_inicio.animation_finished
@@ -171,15 +235,14 @@ func _on_input_timer_timeout() -> void:
 		if not input_registrado:
 			print("Malparido")
 			perder_vida()
-			await get_tree().create_timer(randomStart_Await).timeout
 			sum_randomStart()
+			await get_tree().create_timer(randomStart_Await).timeout
 			print(arreglo_utilizado, random_start)
 			$Input_Timer.start()
 			audio_actual.play()
 			return
-		
-		await get_tree().create_timer(randomStart_Await).timeout
 		sum_randomStart()
+		await get_tree().create_timer(randomStart_Await).timeout
 		print("lo cambie")
 		input_registrado = false
 		print("sonido cuando si le da")
@@ -189,8 +252,10 @@ func _on_input_timer_timeout() -> void:
 func sum_randomStart():
 	if random_start >= arreglo_utilizado.size() - 1:
 		random_start = 0
+		_mostrar_teclas()
 	else:
 		random_start += 1
+		_mostrar_teclas()
 
 func _on_global_timer_timeout() -> void:
 	$Input_Timer.stop()

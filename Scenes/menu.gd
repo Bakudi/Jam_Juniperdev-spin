@@ -1,8 +1,8 @@
 extends Control
-
+const musica : String = "res://Scenes/Levels/Sounds/Sonido__Menu.wav"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Musica.play_music_level()
+	Musica.play_music_level(musica)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

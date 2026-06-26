@@ -1,7 +1,18 @@
 [gd_scene format=3 uid="uid://dxjam7crvqqe8"]
 
 [ext_resource type="Texture2D" uid="uid://cwev8mvha4aum" path="res://Assets/demo_Spritesheet.png" id="1_naqj5"]
-[ext_resource type="Texture2D" uid="uid://rbnbtbf0c2q2" path="res://Scenes/Levels/Fidget_Img.jpg" id="2_naqj5"]
+[ext_resource type="Texture2D" uid="uid://hcy7w5dt4sbe" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.49 AM (1).jpeg" id="2_5tk24"]
+[ext_resource type="Texture2D" uid="uid://cshprffrh05at" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.49 AM.jpeg" id="3_bew7c"]
+[ext_resource type="Texture2D" uid="uid://sbthn6imcd8o" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (1).jpeg" id="4_8cv12"]
+[ext_resource type="Texture2D" uid="uid://nudybotcdyty" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (2).jpeg" id="5_k81df"]
+[ext_resource type="Texture2D" uid="uid://b3p5ecr5w4803" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (3).jpeg" id="6_o3hqw"]
+[ext_resource type="Texture2D" uid="uid://bbtc46pygnmai" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (4).jpeg" id="7_e5afr"]
+[ext_resource type="Texture2D" uid="uid://csmp0jlsy7wvd" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (5).jpeg" id="8_g3fjl"]
+[ext_resource type="Texture2D" uid="uid://d0uj3h8mti0v3" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (6).jpeg" id="9_5m3f6"]
+[ext_resource type="Texture2D" uid="uid://b7ye7b2ursac3" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (7).jpeg" id="10_c31py"]
+[ext_resource type="Texture2D" uid="uid://bln23vcltc2i2" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM (8).jpeg" id="11_dtlwp"]
+[ext_resource type="Texture2D" uid="uid://cet7m2yaygyea" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.50 AM.jpeg" id="12_asbfl"]
+[ext_resource type="Texture2D" uid="uid://bwlsggchn8dg5" path="res://Scenes/Levels/SpinnerAnimations/WhatsApp Image 2026-06-26 at 12.13.51 AM.jpeg" id="13_ebgao"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_optw3"]
 atlas = ExtResource("1_naqj5")
@@ -18,42 +29,6 @@ region = Rect2(86, 212, 86, 53)
 [sub_resource type="AtlasTexture" id="AtlasTexture_8i3tx"]
 atlas = ExtResource("1_naqj5")
 region = Rect2(172, 212, 86, 53)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ciyu3"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(0, 0, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_iekq0"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(115, 0, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_q34e7"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(230, 0, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_jbwtf"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(0, 75, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_6kb2o"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(115, 75, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4upq1"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(230, 75, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_nthe4"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(0, 150, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ay174"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(115, 150, 115, 75)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_kterj"]
-atlas = ExtResource("2_naqj5")
-region = Rect2(230, 150, 115, 75)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ipuiy"]
 atlas = ExtResource("1_naqj5")
@@ -108,32 +83,41 @@ animations = [{
 "speed": 25.0
 }, {
 "frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ciyu3")
+"duration": 0.7,
+"texture": ExtResource("3_bew7c")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_iekq0")
+"duration": 0.7,
+"texture": ExtResource("2_5tk24")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_q34e7")
+"duration": 0.7,
+"texture": ExtResource("12_asbfl")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jbwtf")
+"duration": 0.7,
+"texture": ExtResource("4_8cv12")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_6kb2o")
+"duration": 0.7,
+"texture": ExtResource("5_k81df")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_4upq1")
+"duration": 0.7,
+"texture": ExtResource("6_o3hqw")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_nthe4")
+"duration": 0.7,
+"texture": ExtResource("7_e5afr")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ay174")
+"duration": 0.7,
+"texture": ExtResource("8_g3fjl")
 }, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_kterj")
+"duration": 0.7,
+"texture": ExtResource("9_5m3f6")
+}, {
+"duration": 0.7,
+"texture": ExtResource("10_c31py")
+}, {
+"duration": 0.7,
+"texture": ExtResource("11_dtlwp")
+}, {
+"duration": 0.7,
+"texture": ExtResource("13_ebgao")
 }],
 "loop": 1,
 "name": &"idle",
@@ -179,6 +163,7 @@ animations = [{
 [node name="Spinner" type="Node2D" unique_id=2083991663]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1856315270]
-scale = Vector2(4.646191, 4.6461916)
+scale = Vector2(0.34791642, 0.34791666)
 sprite_frames = SubResource("SpriteFrames_fhibl")
-animation = &"presionar"
+animation = &"idle"
+frame_progress = 0.4711375

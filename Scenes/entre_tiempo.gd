@@ -2,9 +2,9 @@ extends Node2D
 
 @onready var camera: Camera2D = $Camera2D
 @onready var contenedor_teclas: HBoxContainer = $Camera2D/ContenedorTeclas
-@onready var label_tecla_activa: Label = $Camera2D/ContenedorTeclas/LabelTeclaActiva
 
 func _ready():
+	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido__Menu.wav")
 	_mostrar_teclas()
 
 func _mostrar_teclas():
@@ -33,8 +33,6 @@ func _mostrar_teclas():
 		panel.custom_minimum_size = Vector2(60, 60)
 		contenedor_teclas.add_child(panel)
 	
-	# Muestra por separado cuál es la tecla correcta
-	label_tecla_activa.text = "Presiona: " + GameState.arreglo_utilizado[GameState.random_start]
 
 func _estilo_normal() -> StyleBoxFlat:
 	var estilo = StyleBoxFlat.new()

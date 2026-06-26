@@ -8,9 +8,31 @@ script = ExtResource("1_tmmgi")
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1450790638]
 position = Vector2(579, 325)
 
-[node name="ContenedorTeclas" type="HBoxContainer" parent="Camera2D" unique_id=2117277540]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="LabelTeclaActiva2" type="Label" parent="Camera2D" unique_id=1479106597]
+offset_left = -161.0
+offset_top = 94.0
+offset_right = 178.0
+offset_bottom = 183.0
+theme_override_font_sizes/font_size = 25
+text = "Press Space to continue "
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="LabelTeclaActiva" type="Label" parent="Camera2D/ContenedorTeclas" unique_id=2001441242]
-layout_mode = 2
+[node name="LabelTeclaActiva" type="Label" parent="Camera2D" unique_id=2001441242]
+offset_left = -588.0
+offset_top = -208.0
+offset_right = 584.0
+offset_bottom = -108.0
+theme_override_font_sizes/font_size = 25
+text = "\"Press the colored key to the beat 
+the example below will guide you in the next level, good luck!\""
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ContenedorTeclas" type="HBoxContainer" parent="Camera2D" unique_id=2117277540]
+offset_left = -92.0
+offset_top = 23.0
+offset_right = 97.0
+offset_bottom = 63.0
+alignment = 1
+metadata/_edit_use_anchors_ = true

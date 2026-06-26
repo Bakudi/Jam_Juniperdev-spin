@@ -78,6 +78,16 @@ script = ExtResource("1_fw5nb")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1781433560]
 
+[node name="ContenedorTeclas" type="HBoxContainer" parent="." unique_id=1793343891]
+z_index = 10
+offset_left = -20.0
+offset_top = -250.0
+offset_right = 20.0
+offset_bottom = -210.0
+
+[node name="LabelTeclaActiva" type="Label" parent="ContenedorTeclas" unique_id=387768645]
+layout_mode = 2
+
 [node name="Global_Timer" type="Timer" parent="." unique_id=654488784]
 wait_time = 20.0
 
