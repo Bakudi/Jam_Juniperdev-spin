@@ -3,9 +3,9 @@
 [ext_resource type="Script" uid="uid://b8mqn0fjqsuya" path="res://Scenes/Player/logica_tiempo.gd" id="1_fw5nb"]
 [ext_resource type="Script" uid="uid://8ufrturu5syc" path="res://Scenes/Player/difcultad.gd" id="2_vq8lm"]
 [ext_resource type="Texture2D" uid="uid://ka1nswx7d045" path="res://Scenes/Levels/Progress_bar.png" id="3_vq8lm"]
-[ext_resource type="AudioStream" uid="uid://0caoj51vud86" path="res://Scenes/Levels/Sounds/Sonido_Spinner.wav" id="4_tuho4"]
+[ext_resource type="AudioStream" uid="uid://dbl1kyt8xeirn" path="res://Scenes/Levels/Sounds/Sonido_Spinner_corregido.mp3" id="4_tuho4"]
 [ext_resource type="AudioStream" uid="uid://i0uv5jbawvp4" path="res://Scenes/Levels/Sounds/Sonido_Bruja.wav" id="5_o2t4y"]
-[ext_resource type="AudioStream" uid="uid://cfpk6iot4n05j" path="res://Scenes/Levels/Sounds/Sonido_Beyblade.wav" id="6_ahfwm"]
+[ext_resource type="AudioStream" uid="uid://dfmabj5ce7xkg" path="res://Scenes/Levels/Sounds/Sonido_Beyblade_corregido.mp3" id="6_o2t4y"]
 [ext_resource type="AudioStream" uid="uid://dba3g38r082fm" path="res://Scenes/Levels/Sounds/Sonido_Ventilador.wav" id="7_swaqo"]
 [ext_resource type="AudioStream" uid="uid://c4oqrspd3qrxx" path="res://Scenes/Levels/Sounds/Sonido_Gato.wav" id="8_0si0g"]
 
@@ -114,7 +114,7 @@ stream = ExtResource("5_o2t4y")
 bus = &"PitchShift"
 
 [node name="Audio_Beyblade" type="AudioStreamPlayer" parent="." unique_id=441783603]
-stream = ExtResource("6_ahfwm")
+stream = ExtResource("6_o2t4y")
 bus = &"PitchShift"
 
 [node name="Audio_Ventilador" type="AudioStreamPlayer" parent="." unique_id=1199461472]
