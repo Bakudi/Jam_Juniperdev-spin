@@ -4,7 +4,7 @@ extends Node2D
 @onready var contenedor_teclas: HBoxContainer = $Camera2D/ContenedorTeclas
 
 func _ready():
-	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido__Menu.wav")
+	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido__Menu_corregido.mp3")
 	_mostrar_teclas()
 
 func _mostrar_teclas():

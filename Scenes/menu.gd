@@ -1,5 +1,5 @@
 extends Control
-const musica : String = "res://Scenes/Levels/Sounds/Sonido__Menu.wav"
+const musica : String = "res://Scenes/Levels/Sounds/Sonido__Menu_corregido.mp3"
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	Musica.play_music_level(musica)

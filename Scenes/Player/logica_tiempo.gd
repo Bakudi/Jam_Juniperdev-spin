@@ -193,7 +193,7 @@ func _process(delta: float) -> void:
 			break
 
 func _iniciar_con_animacion() -> void:
-	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido_Niveles.wav")
+	Musica.play_music_level("res://Scenes/Levels/Sounds/Sonido_Niveles_corregido.mp3")
 	animacion_inicio.visible = true
 	animacion_inicio.play("idle")
 	await animacion_inicio.animation_finished
