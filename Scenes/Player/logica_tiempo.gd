@@ -66,7 +66,7 @@ func crear_nivel():
 	arreglo_utilizado = script_dif.arreglo_envio[random_array]
 	random_start = randi_range(0, arreglo_utilizado.size() - 1)
 	print(arreglo_utilizado,random_start)
-	$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await)*arreglo_utilizado.size() +0.2
+	$Global_Timer.wait_time = ($Input_Timer.wait_time + randomStart_Await)*arreglo_utilizado.size() + 1
 func _process(delta: float) -> void:
 	
 	if Input.is_action_just_pressed("Iniciar") and $Global_Timer.time_left <= 0:
@@ -86,6 +86,7 @@ func _process(delta: float) -> void:
 				
 			else:
 				input_registrado = true
+				nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
 				await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
 				nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
 				print("Hijueputa")
@@ -147,6 +148,7 @@ func _on_input_timer_timeout() -> void:
 			
 		await get_tree().create_timer(randomStart_Await).timeout
 		sum_randomStart()
+		print("lo cambie")
 		input_registrado = false
 		print("sonido cuando si le da")
 		$Input_Timer.start()
