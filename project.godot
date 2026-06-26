@@ -15,10 +15,15 @@ run/main_scene="uid://dxcwqbjmh53n4"
 config/features=PackedStringArray("4.7", "Mobile")
 config/icon="res://icon.svg"
 
+[audio]
+
+buses/default_bus_layout="uid://brqiuopg2hw1l"
+
 [autoload]
 
 Musica="*uid://caydp1ml24jw6"
 PuntuacionVidas="*uid://b5pma1k660buq"
+GameState="*uid://3ig8lc5lvmst"
 
 [display]
 

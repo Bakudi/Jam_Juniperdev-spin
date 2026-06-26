@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://bk4eax874656o"]
+
+[ext_resource type="Script" uid="uid://bk1vgdvcehgnt" path="res://Scenes/entre_tiempo.gd" id="1_tmmgi"]
+
+[node name="EntreTiempo" type="Node2D" unique_id=97347764]
+script = ExtResource("1_tmmgi")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1450790638]
+position = Vector2(579, 325)
+
+[node name="ContenedorTeclas" type="HBoxContainer" parent="Camera2D" unique_id=2117277540]
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="LabelTeclaActiva" type="Label" parent="Camera2D/ContenedorTeclas" unique_id=2001441242]
+layout_mode = 2
