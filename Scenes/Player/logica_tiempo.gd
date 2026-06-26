@@ -189,6 +189,7 @@ func _process(delta: float) -> void:
 				nivel_actual_instancia.get_node("AnimatedSprite2D").play("mal")
 				await nivel_actual_instancia.get_node("AnimatedSprite2D").animation_finished
 				nivel_actual_instancia.get_node("AnimatedSprite2D").play("idle")
+				print("tecla mala")
 				perder_vida()
 			break
 
@@ -217,6 +218,7 @@ func _iniciar_con_animacion() -> void:
 	print("sonido de inicio del juego")
 	audio_actual.play()
 	$Input_Timer.start()
+	nivel_actual_instancia.get_node("AnimatedSprite2D").play("presionar")
 	print(arreglo_utilizado, random_start)
 
 func perder_vida():
@@ -239,6 +241,7 @@ func _on_input_timer_timeout() -> void:
 			await get_tree().create_timer(randomStart_Await).timeout
 			print(arreglo_utilizado, random_start)
 			$Input_Timer.start()
+			nivel_actual_instancia.get_node("AnimatedSprite2D").play("presionar")
 			audio_actual.play()
 			return
 		sum_randomStart()
@@ -247,6 +250,7 @@ func _on_input_timer_timeout() -> void:
 		input_registrado = false
 		print("sonido cuando si le da")
 		$Input_Timer.start()
+		nivel_actual_instancia.get_node("AnimatedSprite2D").play("presionar")
 		audio_actual.play()
 
 func sum_randomStart():
