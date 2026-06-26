@@ -31,6 +31,7 @@ var nivel_actual_instancia: Node = null
 var nivel_actual_index: int = -1
 var randomStart_Await: int
 var audio_actual
+var pausado: bool = false
 
 var duracion_original: float
 var niveles_restantes: Array = []
@@ -169,6 +170,9 @@ func _preparar_siguiente_nivel():
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("Iniciar") and $Global_Timer.time_left <= 0:
 		_iniciar_con_animacion()
+		
+	if Input.is_action_just_pressed("escape"):
+		get_tree().change_scene_to_file("res://Scenes/menu.tscn")
 
 	if $Global_Timer.time_left <= 0:
 		return
