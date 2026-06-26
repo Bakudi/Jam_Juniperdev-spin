@@ -181,4 +181,4 @@ animations = [{
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=617562326]
 scale = Vector2(4.646191, 4.6461916)
 sprite_frames = SubResource("SpriteFrames_tqpme")
-animation = &"presionar"
+animation = &"idle"
